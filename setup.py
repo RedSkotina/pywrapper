@@ -1,4 +1,4 @@
-
+import os
 from setuptools import setup, Extension
 
 # the c extension module
@@ -15,4 +15,12 @@ extension_mod = Extension(
 setup(
     name = "pywrapper",
     ext_modules=[extension_mod],
+    include_package_data=True,
+    #package_dir={'':["src/extlib"]},
+    package_data = {
+        '': [
+            'src/extlib/build/extlib.dll',
+            ],
+        }
+    #data_files=[('', ['src/extlib/build/extlib.dll'])],
     )
